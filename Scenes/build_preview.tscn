@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://5c7rrt6ivli5"]
+[gd_scene load_steps=2 format=3 uid="uid://5c7rrt6ivli5"]
 
 [ext_resource type="Script" uid="uid://qnckj6d82nd1" path="res://Scripts/BuildPreview.cs" id="1_crh8s"]
-[ext_resource type="PackedScene" uid="uid://c74wn2xh3adqs" path="res://Assets/Commercial/building-a.glb" id="2_t7olq"]
 
 [node name="BuildPreview" type="Node3D"]
 script = ExtResource("1_crh8s")
-
-[node name="building-a2" parent="." instance=ExtResource("2_t7olq")]

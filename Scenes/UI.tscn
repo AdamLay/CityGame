@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dan88dogly8h8"]
+[gd_scene load_steps=3 format=3 uid="uid://dan88dogly8h8"]
 
 [ext_resource type="Script" uid="uid://b74ilvbthi283" path="res://Scripts/UI/BuildButton.cs" id="1_w371h"]
+[ext_resource type="PackedScene" uid="uid://db5f7bfdfq23v" path="res://Scenes/Buildings/TestBuilding.tscn" id="2_nxvpl"]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -18,3 +19,4 @@ offset_right = 87.0
 offset_bottom = 59.0
 text = "Build"
 script = ExtResource("1_w371h")
+Building = ExtResource("2_nxvpl")

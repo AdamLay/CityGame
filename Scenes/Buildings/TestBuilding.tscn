@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://db5f7bfdfq23v"]
+
+[ext_resource type="Script" uid="uid://by3gnio6k8363" path="res://Scripts/Building.cs" id="1_1cwty"]
+[ext_resource type="PackedScene" uid="uid://c74wn2xh3adqs" path="res://Assets/Commercial/building-a.glb" id="2_ui043"]
+
+[node name="TestBuilding" type="Node3D"]
+script = ExtResource("1_1cwty")
+
+[node name="building-a2" parent="." instance=ExtResource("2_ui043")]

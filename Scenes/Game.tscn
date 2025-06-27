@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cdaekldxxwcni"]
 
-[ext_resource type="Script" uid="uid://cc3cj0ihntq8n" path="res://Scripts/BuildManager.cs" id="1_7lihs"]
+[ext_resource type="Script" uid="uid://cc3cj0ihntq8n" path="res://Scripts/Managers/BuildManager.cs" id="1_7lihs"]
 [ext_resource type="Script" uid="uid://cjxdvgrbo2h45" path="res://Scripts/CameraController.cs" id="1_iukft"]
 [ext_resource type="Material" uid="uid://dy3ylt3uke765" path="res://Materials/GrassFloorMaterial.tres" id="2_gl6un"]
-[ext_resource type="PackedScene" uid="uid://c74wn2xh3adqs" path="res://Assets/Commercial/building-a.glb" id="3_j5yw3"]
+[ext_resource type="Script" uid="uid://bjemd6250heix" path="res://Scripts/Managers/WorldManager.cs" id="3_fgofq"]
 [ext_resource type="PackedScene" uid="uid://dan88dogly8h8" path="res://Scenes/UI.tscn" id="4_kldst"]
 [ext_resource type="PackedScene" uid="uid://5c7rrt6ivli5" path="res://Scenes/build_preview.tscn" id="6_7lihs"]
 
@@ -13,12 +13,17 @@
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="BuildManager" type="Node" parent="Managers"]
+[node name="WorldManager" type="Node" parent="Managers" node_paths=PackedStringArray("BuildingsContainer")]
+script = ExtResource("3_fgofq")
+BuildingsContainer = NodePath("../../BuildingsContainer")
+
+[node name="BuildManager" type="Node" parent="Managers" node_paths=PackedStringArray("BuildingsContainer")]
 script = ExtResource("1_7lihs")
 BuildPreviewScene = ExtResource("6_7lihs")
+BuildingsContainer = NodePath("../../BuildingsContainer")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 2, -2)
 script = ExtResource("1_iukft")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -27,24 +32,14 @@ material_override = ExtResource("2_gl6un")
 mesh = SubResource("PlaneMesh_j5yw3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 10.6861, -10.506)
+transform = Transform3D(1, 0, 0, 0, -0.173648, 0.984808, 0, -0.984808, -0.173648, 0, 10.6861, -10.506)
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 shadow_opacity = 0.5
 
-[node name="building-a2" parent="." instance=ExtResource("3_j5yw3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.497294, 3.38345e-05, -0.496318)
-
-[node name="building-a3" parent="." instance=ExtResource("3_j5yw3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0847003, 0.0276392, -2.50334)
-visible = false
-
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.194113, 0.976202, 0.0966944, -0.711028, -0.207919, 0.671721, 0.67584, 0.061637, 0.734467, 7.81795, 10.6861, 4.88729)
+transform = Transform3D(-0.194113, 0.976202, 0.0966944, -0.711028, -0.207919, 0.671721, 0.67584, 0.0616374, 0.734467, 8.30212, 10.5619, 5.44916)
 visible = false
 light_energy = 0.6
 light_indirect_energy = 16.0
@@ -53,3 +48,5 @@ shadow_enabled = true
 shadow_opacity = 0.5
 
 [node name="Ui" parent="." instance=ExtResource("4_kldst")]
+
+[node name="BuildingsContainer" type="Node3D" parent="."]

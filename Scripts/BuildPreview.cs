@@ -1,10 +1,9 @@
 using Godot;
-using System;
 
 public partial class BuildPreview : Node3D
 {
 	[Export] public Camera3D Camera;
-
+	[Export] public Building Building;
 	public override void _Process(double delta)
 	{
 		Vector2 mousePos = GetViewport().GetMousePosition();
@@ -21,7 +20,12 @@ public partial class BuildPreview : Node3D
 
 		if (didHit.HasValue)
 		{
-			Position = didHit.Value;
+			Vector3 snappedPosition = new Vector3(
+				Mathf.Round(didHit.Value.X),
+				Mathf.Round(didHit.Value.Y),
+				Mathf.Round(didHit.Value.Z)
+			);
+			Position = snappedPosition;
 		}
 	}
 }

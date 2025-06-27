@@ -4,6 +4,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Scenes\" />
     <Folder Include="Scripts\UI\" />
   </ItemGroup>
 </Project>

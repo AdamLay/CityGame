@@ -3,6 +3,8 @@ using System;
 
 public partial class BuildButton : Button
 {
+	[Export] public PackedScene Building;
+
 	public override void _Ready()
 	{
 		Pressed += ButtonPressed;
@@ -10,6 +12,8 @@ public partial class BuildButton : Button
 
 	private void ButtonPressed()
 	{
+		BuildManager.Instance.ToBuild = Building;
+
 		BuildManager.Instance.ShowPreview();
 	}
 }
